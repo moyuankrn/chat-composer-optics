@@ -2,9 +2,7 @@
 
 An experimental glass effect for a chat input, send button, and other composer controls. It was extracted from a private chat panel into a standalone browser demo. The centre stays readable while the edge bends the scene behind it.
 
-![Desktop preview](preview.png)
-
-<img src="preview-mobile.png" alt="Mobile preview" width="320">
+![Live browser preview of the refracting chat composer](preview.png)
 
 ## Try it
 
