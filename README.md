@@ -2,9 +2,9 @@
 
 An experimental glass effect for a chat input, send button, and other composer controls. It was extracted from a private chat panel into a standalone browser demo. The centre stays readable while the edge bends the scene behind it.
 
-![The composer running in the panel frontend with sample messages](preview-panel.webp)
+![The composer running in the panel frontend with sample messages and no wallpaper](preview-clean.webp)
 
-Captured from the panel frontend with sample messages. The standalone demo below uses the extracted renderer and original SVG example wallpaper.
+Captured from the panel frontend with sample messages and no wallpaper. The standalone demo below uses the extracted renderer and original SVG example wallpaper.
 
 ## Try it
 
