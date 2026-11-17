@@ -1,0 +1,35 @@
+:root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body { color: #f8f7f3; background: #2d4354; --bg: #f4f3ee; --convo-blur: 1; --convo-veil: 12; }
+.wall { position: fixed; inset: 0; z-index: 0; overflow: hidden; }
+.wall img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.wall::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(12,24,35,.27), transparent 70%); pointer-events: none; }
+.demo { position: relative; z-index: 1; width: min(760px, calc(100% - 32px)); min-height: 100vh; margin: auto; display: flex; flex-direction: column; padding: clamp(22px, 5vw, 56px) 0 22px; }
+.topbar, footer { display: flex; justify-content: space-between; align-items: end; gap: 16px; }
+.eyebrow { font-size: 11px; font-weight: 750; letter-spacing: .19em; color: #e5d7b4; }
+h1 { margin: 7px 0 24px; font-family: Georgia, serif; font-weight: 400; font-size: clamp(30px, 4.7vw, 46px); letter-spacing: -.035em; }
+button { cursor: pointer; color: inherit; font: inherit; }
+.scene { margin-bottom: 27px; white-space: nowrap; border: 1px solid rgba(255,255,255,.45); background: rgba(12,28,39,.26); border-radius: 999px; padding: 11px 16px; }
+.scene:hover { background: rgba(255,255,255,.16); }
+.conversation { flex: 1; min-height: min(520px, 68vh); max-height: 690px; display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,.3); border-radius: 25px; background: rgba(9,23,32,.13); box-shadow: 0 20px 70px rgba(4,18,30,.2); overflow: hidden; }
+.messages { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; padding: 24px; }
+.hint { align-self: center; max-width: 360px; text-align: center; color: rgba(255,255,255,.82); font-size: 13px; line-height: 1.5; margin: 8px 0 22px; }
+.message { max-width: min(75%, 400px); padding: 14px 18px; border: 1px solid rgba(255,255,255,.28); border-radius: 21px; background: rgba(20,43,56,.22); box-shadow: 0 8px 20px rgba(8,20,30,.1); line-height: 1.5; }
+.message.user { align-self: flex-end; border-bottom-right-radius: 7px; }
+.message.assistant { border-bottom-left-radius: 7px; }
+.composer { display: flex; align-items: center; gap: 11px; padding: 18px; border-top: 1px solid rgba(255,255,255,.2); background: rgba(10,26,37,.09); }
+.optic { position: relative; isolation: isolate; overflow: hidden; border: .5px solid rgba(255,255,255,.26); background: var(--chat-glass-fill, rgba(20,20,24,.16)); -webkit-backdrop-filter: blur(.5px) saturate(var(--chat-glass-saturation,160%)) brightness(var(--chat-glass-brightness,.8)); backdrop-filter: blur(.5px) saturate(var(--chat-glass-saturation,160%)) brightness(var(--chat-glass-brightness,.8)); box-shadow: inset 0 1px .5px rgba(255,255,255,.45), inset 0 3px 3px -3px rgba(255,255,255,.3), 0 8px 18px -12px rgba(10,20,30,.45); }
+.optic.has-composer-optics, .optic.has-backdrop-refraction { background-color: rgba(48,66,82,.035); }
+.optic.has-composer-optics { -webkit-backdrop-filter: none; backdrop-filter: none; }
+.optic > canvas.composer-optics { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+.optic > :not(canvas) { position: relative; z-index: 1; }
+.composer-field { flex: 1; min-width: 0; height: 52px; border-radius: 22px; display: flex; align-items: center; }
+.composer-field:focus-within { border-color: rgba(255,255,255,.55); }
+.composer-field input { width: 100%; border: 0; outline: 0; background: transparent; color: white; font: inherit; padding: 0 18px; }
+.composer-field input::placeholder { color: rgba(255,255,255,.82); }
+.mic, .send { flex: none; width: 52px; height: 52px; border-radius: 19px; font-size: 25px; display: grid; place-items: center; }
+.mic:hover, .send:hover { border-color: rgba(255,255,255,.7); }
+footer { padding-top: 15px; color: rgba(255,255,255,.82); font-size: 12px; }
+@media (prefers-reduced-transparency: reduce) { .optic { background: #294557 !important; background-image: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; } .optic > canvas { display: none; } }
+@media (max-width: 520px) { .demo { width: 100%; padding: 20px 12px 12px; } .topbar { padding-inline: 4px; } .conversation { border-radius: 19px; } .messages { padding: 18px 14px; } .message { max-width: 84%; } .composer { padding: 12px; gap: 8px; } .composer-field { height: 48px; } .mic, .send { width: 48px; height: 48px; } footer span:last-child { display: none; } }

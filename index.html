@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chat Composer Optics — Preview</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="on-wall">
+  <div class="wall" aria-hidden="true"><img class="on" src="wallpaper.svg" alt=""></div>
+  <main class="demo">
+    <header class="topbar">
+      <div><span class="eyebrow">INTERACTIVE PREVIEW</span><h1>Chat Composer Optics</h1></div>
+      <button class="scene" id="change-wall" type="button">Change scene</button>
+    </header>
+    <section class="conversation" aria-label="Demo conversation">
+      <div class="messages" id="messages">
+        <p class="hint">The controls stay readable while the scene continues behind them.</p>
+        <div class="message assistant">The input is a little window into the wallpaper.</div>
+        <div class="message user">Move the scene or send a message to watch the glass respond.</div>
+        <div class="message assistant">The centre stays usable; the edge catches the light.</div>
+      </div>
+      <form class="composer" id="composer">
+        <button class="mic optic" type="button" aria-label="Microphone demo"><span>♪</span></button>
+        <div class="composer-field optic"><input id="message" maxlength="240" autocomplete="off" aria-label="Message" placeholder="Write a message…"></div>
+        <button class="send optic" type="submit" aria-label="Send message"><span>↗</span></button>
+      </form>
+    </section>
+    <footer><span id="status" aria-live="polite">Preparing glass…</span><span>Experimental browser effect · no external assets</span></footer>
+  </main>
+  <script type="module" src="demo.js"></script>
+</body>
+</html>
